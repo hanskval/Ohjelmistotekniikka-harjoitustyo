@@ -10,6 +10,8 @@
 - Käyttäjä voi lisätä uuden tulon tai menon. Lisäksi tämä lisätään kategoriaan ja mahdollinen selite.
 
 ### Ydinominaisuudet
+- Käyttäjä voi luoda käyttäjätunnuksen
+- Käyttäjä voi kirjautua käyttäjätunnuksella
 - Käyttäjä voi poistaa tuloja ja menoja ja muokata aiempia
 - Sovellus näyttää reaaliaikaisesti saldon
 - Kaikki tiedot tallennetaan paikalliseen tietokantaan
