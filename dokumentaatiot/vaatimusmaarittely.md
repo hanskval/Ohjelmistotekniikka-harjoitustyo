@@ -2,12 +2,12 @@
 
 
 ## Käyttäjät
-*Sovelluksessa on yksi käyttäjärooli: Yksityiskäyttäjä
+-Sovelluksessa on yksi käyttäjärooli: Yksityiskäyttäjä
 
 
 
 ## Sovelluksen tarkoitus
-*Käyttäjä voi lisätä uuden tulon tai menon. Lisäksi tämä lisätään kategoriaan ja mahdollinen selite.
+-Käyttäjä voi lisätä uuden tulon tai menon. Lisäksi tämä lisätään kategoriaan ja mahdollinen selite.
 
 ### Ydinominaisuudet
 - Käyttäjä voi poistaa tuloja ja menoja ja muokata aiempia
