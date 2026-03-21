@@ -1,6 +1,8 @@
-# Ohjelmistotekniikka, harjoitustyo
+# Budjetointi sovellus
 
-**Harjoitustyon** aihe on vielä valitsematta, selventyy *seuraavan* viikon aikana
+## Sovelluksen avulla käyttäjä pysyy ajantasalla taloudellisesta tilanteestaan.
 
-[Viikko 1 laskarit](laskarit/viikko1/viikko1.md)
-
+## Dokumentaatiot
+- [Viikko 1 laskarit](laskarit/viikko1/viikko1.md)
+- [Vaatimusmäärittely](dokumentaatiot/vaatimusmäärittely.md)
+- [Tyoaikakirjanoito](dokumentaatiot/tyoaikakirjanpito.md)
