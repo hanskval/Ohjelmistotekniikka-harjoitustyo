@@ -7,12 +7,13 @@
 
 
 ## Sovelluksen tarkoitus
-- Käyttäjä voi lisätä uuden tulon tai menon. Lisäksi tämä lisätään kategoriaan ja mahdollinen selite.
+- Sovelluksen avulla käyttäjä pysyy ajan tasalla taloudestaan reaaliaikaisen seurannan avulla
 
 ### Ydinominaisuudet
 - Käyttäjä voi luoda käyttäjätunnuksen
 - Käyttäjä voi kirjautua käyttäjätunnuksella
 - Käyttäjä voi poistaa tuloja ja menoja ja muokata aiempia
+- Käyttäjä voi lisätä uuden tulon tai menon. Lisäksi tämä lisätään kategoriaan ja annetaan mahdollinen selite.
 - Sovellus näyttää reaaliaikaisesti saldon
 - Kaikki tiedot tallennetaan paikalliseen tietokantaan
 
