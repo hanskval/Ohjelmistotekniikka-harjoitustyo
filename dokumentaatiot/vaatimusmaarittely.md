@@ -1,13 +1,12 @@
 # Budjetointisovellus
 
 
+## Sovelluksen tarkoitus
+- Sovelluksen avulla käyttäjä pysyy ajan tasalla taloudestaan reaaliaikaisen seurannan avulla
+
 ## Käyttäjät
 - Sovelluksessa on yksi käyttäjärooli: Yksityiskäyttäjä
 
-
-
-## Sovelluksen tarkoitus
-- Sovelluksen avulla käyttäjä pysyy ajan tasalla taloudestaan reaaliaikaisen seurannan avulla
 
 ### Ydinominaisuudet
 - Käyttäjä voi luoda käyttäjätunnuksen
