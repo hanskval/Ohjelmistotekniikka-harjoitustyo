@@ -3,7 +3,7 @@
 Sovelluksen avulla käyttäjä pysyy ajantasalla taloudellisesta tilanteestaan.
 
 ## Dokumentaatiot
-- [Vaatimusmäärittely](dokumentaatiot/vaatimusmäärittely.md)
+- [Vaatimusmäärittely](dokumentaatiot/vaatimusmaarittely.md)
 - [Tyoaikakirjanoito](dokumentaatiot/tyoaikakirjanpito.md)
 
 # Laskarit
