@@ -7,11 +7,11 @@ class UI:
         self._current_view = None # Pitää kirjaa nykyisestä näkymästä
 
     def start(self):
-        # Kun ohjelma käynnistyy, näytetään ensimmäisenä kirjautuminen
+        # Näytetään ensimmäisenä ohjelman käynnityttyä
         self._show_login_view()
 
     def _hide_current_view(self):
-        # Jos ruudulla on jo jokin näkymä, tuhotaan sen kaikki elementit
+        # Jos ruudulla on jo jokin näkymä, tuhotaan se ennen uuden näyttämistä
         if self._current_view:
             self._current_view.destroy()
         self._current_view = None
@@ -22,7 +22,7 @@ class UI:
         self._current_view = LoginView(
             self._root,
             self._user_dao,
-            self._show_create_user_view # Annetaan funktio argumenttina!
+            self._show_create_user_view
         )
         self._current_view.pack()
 

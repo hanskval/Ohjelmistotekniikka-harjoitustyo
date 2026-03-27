@@ -7,21 +7,20 @@ class LoginView:
         self._user_dao = user_dao
         self._handle_show_create_user_view = handle_show_create_user_view
         
-        # Luodaan "laatikko" (Frame), jonka sisälle kaikki tämän näkymän asiat menevät
         self._frame = tk.Frame(master=self._root)
         
         self._initialize()
 
     def pack(self):
-        # UI-luokka kutsuu tätä tuodakseen laatikon ruudulle
+        
         self._frame.pack(fill=tk.BOTH, expand=True)
 
     def destroy(self):
-        # UI-luokka kutsuu tätä tuhotakseen laatikon
+        # Tuhoaa tämän näkymän
         self._frame.destroy()
 
     def _initialize(self):
-        # Huomaa: master on nyt self._frame, ei self._root!
+        
         tk.Label(master=self._frame, text="Kirjaudu sisään", font=("Arial", 14)).pack(pady=10)
 
         tk.Label(master=self._frame, text="Käyttäjätunnus:").pack()
@@ -34,7 +33,6 @@ class LoginView:
 
         tk.Button(master=self._frame, text="Kirjaudu", command=self._handle_login).pack(pady=10)
         
-        # Tämä nappi vain kutsuu UI-luokalta saatua funktiota, joka hoitaa näkymän vaihdon
         tk.Button(master=self._frame, text="Luo uusi käyttäjä", command=self._handle_show_create_user_view).pack(pady=5)
 
     def _handle_login(self):
@@ -44,6 +42,5 @@ class LoginView:
 
         if user and user['password_hash'] == password:
             messagebox.showinfo("Onnistui", f"Tervetuloa sisään, {username}!")
-            # Myöhemmin tähän tulisi kutsu, joka siirtää käyttäjän sovelluksen päänäkymään!
         else:
             messagebox.showerror("Virhe", "Väärä käyttäjätunnus tai salasana.")

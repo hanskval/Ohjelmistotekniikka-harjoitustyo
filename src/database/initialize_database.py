@@ -18,7 +18,7 @@ def create_tables(connection):
         );
     ''')
 
-    # Tapahtumat (tulot ja menot)
+    # Tapahtumat tulot ja menot ym
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS transactions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,

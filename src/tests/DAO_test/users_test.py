@@ -12,14 +12,6 @@ class TestuserDAO(unittest.TestCase):
         self.users_dao = UserDAO(self.connection)
         self.users_dao.create("testuser", "password123") # Luo käyttäjän tietokantaan
     
-        
-    def test_create_user(self):
-        # Haetaan käyttäjä tietokannasta
-        user = self.users_dao.find_by_username("testuser")
-        
-        self.assertIsNotNone(user)
-        self.assertEqual(user["username"], "testuser")
-        
     def test_find_by_username(self):
         user = self.users_dao.find_by_username("testuser")
         self.assertIsNotNone(user)
