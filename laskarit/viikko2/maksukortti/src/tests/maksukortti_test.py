@@ -5,6 +5,7 @@ class TestMaksukortti(unittest.TestCase):
     def setUp(self):
         self.kortti = Maksukortti(1000)
     
+    
     def test_konstruktori_asettaa_saldon_oikein(self):
         self.assertEqual(str(self.kortti), "Kortilla on rahaa 10.00 euroa")
 
