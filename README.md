@@ -7,7 +7,7 @@ Sovelluksen avulla käyttäjä pysyy ajantasalla taloudellisesta tilanteestaan.
 - [Tyoaikakirjanoito](dokumentaatiot/tyoaikakirjanpito.md)
 
 # Asennus
-1. Varmista että olet kansion juurihakemistossa
+1. Varmista että olet sovelluksen juurihakemistossa
 
 2. Asenna riippuvuudet komennolla:
 
@@ -24,7 +24,7 @@ Sovelluksen avulla käyttäjä pysyy ajantasalla taloudellisesta tilanteestaan.
     ```bash
     poetry run invoke start
     ```
-    
+
 # Laskarit
 - [Viikko 1](laskarit/viikko1/viikko1.md)
 - [Viikko 2](laskarit/viikko2)
