@@ -37,6 +37,7 @@ def initialize_database():
     drop_tables(connection)
     create_tables(connection)
     print("Tietokanta alustettu ja taulut luotu onnistuneesti!")
-
+    connection.commit()
+    connection.close()
 if __name__ == "__main__":
     initialize_database()
