@@ -2,8 +2,10 @@ from src.database.connection import get_database_connection
 from src.DAO.userDAO import UserDAO
 import tkinter as tk
 from src.UI.ui import UI     # Olettaen, että UI on tässä tiedostossa
+from src.database.initialize_database import initialize_database
 
 def main():
+    initialize_database()  # Alustetaan tietokanta ennen sovelluksen käynnistämistä
     # 1. Alustetaan tietokantayhteys
     connection = get_database_connection()
     
