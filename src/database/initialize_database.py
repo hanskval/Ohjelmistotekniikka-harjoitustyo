@@ -1,55 +1,42 @@
 from .connection import get_database_connection
 
-def drop_tables(connection):
-    cursor = connection.cursor()
-    cursor.execute("DROP TABLE IF EXISTS transactions;")
-    cursor.execute("DROP TABLE IF EXISTS users;")
-    connection.commit()
+def drop_tables():
+    with get_database_connection() as connection:
+        cursor = connection.cursor()
+        cursor.execute("DROP TABLE IF EXISTS transactions;")
+        cursor.execute("DROP TABLE IF EXISTS users;")
 
-def create_tables(connection):
-    cursor = connection.cursor()
 
-    # Käyttäjät
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT UNIQUE NOT NULL,
-            password_hash BLOB NOT NULL
-        );
-    ''')
+def create_tables():
+    with get_database_connection() as connection:
+        cursor = connection.cursor()
 
-    # Tapahtumat tulot ja menot ym
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS transactions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER NOT NULL,
-            amount REAL NOT NULL,
-            category TEXT,
-            description TEXT,
-            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (user_id) REFERENCES users (id)
-        );
-    ''')
-    connection.commit()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT UNIQUE NOT NULL,
+                password_hash BLOB NOT NULL
+            );
+        ''')
+
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS transactions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                amount REAL NOT NULL,
+                category TEXT,
+                description TEXT,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (user_id) REFERENCES users (id)
+            );
+        ''')
+
 
 def initialize_database():
-    connection = None
     try:
-        connection = get_database_connection()
-        # Asetetaan lyhyt odotusaika, jos kanta on lukittu
-        connection.isolation_level = None # Automaattinen commit-tila voi auttaa lukituksiin
-        
-        drop_tables(connection)
-        create_tables(connection)
-        
-        print("Tietokanta alustettu ja taulut luotu onnistuneesti!")
-        
+        drop_tables()
+        create_tables()
+        print("Tietokanta alustettu onnistuneesti!")
+
     except Exception as e:
         print(f"Virhe tietokannan alustuksessa: {e}")
-    finally:
-        if connection:
-            connection.close()
-            print("Tietokantayhteys suljettu.")
-
-if __name__ == "__main__":
-    initialize_database()
