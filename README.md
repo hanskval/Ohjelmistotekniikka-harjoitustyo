@@ -28,3 +28,4 @@ Sovelluksen avulla käyttäjä pysyy ajantasalla taloudellisesta tilanteestaan.
 # Laskarit
 - [Viikko 1](laskarit/viikko1/viikko1.md)
 - [Viikko 2](laskarit/viikko2)
+- [Viikko 3](laskarit/viikko3)
