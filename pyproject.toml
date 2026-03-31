@@ -6,7 +6,7 @@ authors = [
     {name = "hanskval",email = "valtteri.hanska@helsinki.fi"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "python-dotenv",
     "bcrypt (>=5.0.0,<6.0.0)",
