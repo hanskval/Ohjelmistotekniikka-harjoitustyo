@@ -33,11 +33,23 @@ def create_tables(connection):
     connection.commit()
 
 def initialize_database():
-    connection = get_database_connection()
-    drop_tables(connection)
-    create_tables(connection)
-    print("Tietokanta alustettu ja taulut luotu onnistuneesti!")
-    connection.commit()
-    connection.close()
+    connection = None
+    try:
+        connection = get_database_connection()
+        # Asetetaan lyhyt odotusaika, jos kanta on lukittu
+        connection.isolation_level = None # Automaattinen commit-tila voi auttaa lukituksiin
+        
+        drop_tables(connection)
+        create_tables(connection)
+        
+        print("Tietokanta alustettu ja taulut luotu onnistuneesti!")
+        
+    except Exception as e:
+        print(f"Virhe tietokannan alustuksessa: {e}")
+    finally:
+        if connection:
+            connection.close()
+            print("Tietokantayhteys suljettu.")
+
 if __name__ == "__main__":
     initialize_database()
