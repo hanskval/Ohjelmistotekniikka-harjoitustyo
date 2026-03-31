@@ -6,7 +6,7 @@ import src.DAO.userDAO as userDAO
 
 class TestuserDAO(unittest.TestCase):
     def setUp(self):
-        # Alustetaan tietokanta ennen jokaista testiä
+        # Alustetaan database ennen jokaista testiä
         initialize_database()
         self.connection = get_database_connection()
         self.transactions_dao = TransactionsDAO(self.connection)
@@ -15,7 +15,17 @@ class TestuserDAO(unittest.TestCase):
         id = self.users_dao.find_by_username("testuser")['id']
         self.transactions_dao.create(user_id=id, amount=100.0, category="Salary", description="Monthly salary")
         
+    def test_find_by_user_id(self):
+        user = self.users_dao.find_by_username("testuser")
+        transactions = self.transactions_dao.find_by_user_id(user['id'])
+        self.assertEqual(len(transactions), 1)
 
+    def test_create_transaction(self):
+        user = self.users_dao.find_by_username("testuser")
+        self.transactions_dao.create(user_id=user['id'], amount=-50.0, category="Groceries", description="Weekly groceries")
+        transactions = self.transactions_dao.find_by_user_id(user['id'])
+        self.assertEqual(len(transactions), 2)
+        
     def test_get_balance(self):
         # Oletetaan, että käyttäjällä on
         user = self.users_dao.find_by_username("testuser")

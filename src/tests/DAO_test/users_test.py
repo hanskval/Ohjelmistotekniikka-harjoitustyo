@@ -10,9 +10,16 @@ class TestuserDAO(unittest.TestCase):
         initialize_database()
         self.connection = get_database_connection()
         self.users_dao = UserDAO(self.connection)
-        self.users_dao.create("testuser", "password123") # Luo käyttäjän tietokantaan
-    
+        
+    def test_create_user(self):
+        self.users_dao.create("testuser", "password123")
+        users = self.users_dao.find_all()
+        
+        self.assertEqual(len(users), 1)
+        self.assertEqual(users[0][1], "testuser")  # index 1 on username
+
     def test_find_by_username(self):
+        self.users_dao.create("testuser", "password123")
         user = self.users_dao.find_by_username("testuser")
         self.assertIsNotNone(user)
-        self.assertEqual(user['username'], "testuser")
+        self.assertEqual(user[1], "testuser")  # index 1 on username

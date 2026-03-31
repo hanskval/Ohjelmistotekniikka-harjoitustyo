@@ -19,3 +19,11 @@ class UserDAO:
         row = cursor.fetchone()
         
         return row if row else None
+    
+    def find_all(self):
+        
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM users")
+        row = cursor.fetchall()
+        
+        return row if row else None
