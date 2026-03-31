@@ -7,13 +7,17 @@ Sovelluksen avulla käyttäjä pysyy ajantasalla taloudellisesta tilanteestaan.
 - [Tyoaikakirjanoito](dokumentaatiot/tyoaikakirjanpito.md)
 
 # Asennus
-1. Asenna riippuvuudet komennolla:
+1. Varmista että olet kansion juurihakemistossa
+2. Asenna riippuvuudet komennolla:
     ```bash
     poetry install
     ```
-2. Käynnistä sovellus komennolla:
+3. ```bash
+    poetry run invoke build
+    ```
+4. Käynnistä sovellus komennolla:
     ```bash
-        poetry run invoke start
+    poetry run invoke start
     ```
 # Laskarit
 - [Viikko 1](laskarit/viikko1/viikko1.md)
