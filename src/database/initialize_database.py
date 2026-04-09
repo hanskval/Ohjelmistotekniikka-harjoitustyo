@@ -1,3 +1,4 @@
+import sqlite3
 from .connection import get_database_connection
 
 def drop_tables():
@@ -38,5 +39,5 @@ def initialize_database():
         create_tables()
         print("Tietokanta alustettu onnistuneesti!")
 
-    except Exception as e:
+    except sqlite3.Error as e:
         print(f"Virhe tietokannan alustuksessa: {e}")

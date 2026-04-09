@@ -1,17 +1,17 @@
 class TransactionsDAO:
-    
+
     def __init__(self, connection):
         self._connection = connection
-        
-    
+
+
     def create(self, user_id, amount, category, description):
         cursor = self._connection.cursor()
         cursor.execute('''
             INSERT INTO transactions (user_id, amount, category, description)
             VALUES (?, ?, ?, ?)
-        ''', (user_id, amount, category, description)) 
+        ''', (user_id, amount, category, description))
         self._connection.commit()
-        
+
     def find_by_user_id(self, user_id):
         # Toteuta tapahtumien hakeminen käyttäjään liittyen
         cursor = self._connection.cursor()

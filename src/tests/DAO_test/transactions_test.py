@@ -11,10 +11,10 @@ class TestuserDAO(unittest.TestCase):
         self.connection = get_database_connection()
         self.transactions_dao = TransactionsDAO(self.connection)
         self.users_dao = userDAO.UserDAO(self.connection)
-        self.users_dao.create("testuser", "password123") # Luo käyttäjän tietokantaan
+        self.users_dao.create("testuser", "password123")    # Luo käyttäjän tietokantaan
         id = self.users_dao.find_by_username("testuser")['id']
         self.transactions_dao.create(user_id=id, amount=100.0, category="Salary", description="Monthly salary")
-        
+
     def test_find_by_user_id(self):
         user = self.users_dao.find_by_username("testuser")
         transactions = self.transactions_dao.find_by_user_id(user['id'])
@@ -25,7 +25,7 @@ class TestuserDAO(unittest.TestCase):
         self.transactions_dao.create(user_id=user['id'], amount=-50.0, category="Groceries", description="Weekly groceries")
         transactions = self.transactions_dao.find_by_user_id(user['id'])
         self.assertEqual(len(transactions), 2)
-        
+
     def test_get_balance(self):
         # Oletetaan, että käyttäjällä on
         user = self.users_dao.find_by_username("testuser")
