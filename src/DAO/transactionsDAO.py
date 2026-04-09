@@ -3,7 +3,6 @@ class TransactionsDAO:
     def __init__(self, connection):
         self._connection = connection
 
-
     def create(self, user_id, amount, category, description):
         cursor = self._connection.cursor()
         cursor.execute('''

@@ -1,10 +1,12 @@
 from src.UI.login_view import LoginView
 from src.UI.create_user_view import CreateUserView
+from src.UI.main_view import MainView
+
 class UI:
     def __init__(self, root, user_dao):
         self._root = root
         self._user_dao = user_dao
-        self._current_view = None # Pitää kirjaa nykyisestä näkymästä
+        self._current_view = None  # Pitää kirjaa nykyisestä näkymästä
 
     def start(self):
         # Näytetään ensimmäisenä ohjelman käynnityttyä
@@ -22,16 +24,27 @@ class UI:
         self._current_view = LoginView(
             self._root,
             self._user_dao,
-            self._show_create_user_view
+            self._show_create_user_view,
+            self._show_main_view
         )
         self._current_view.pack()
 
     def _show_create_user_view(self):
         self._hide_current_view()
-        # Luodaan CreateUserView ja annetaan sille paluufunktio
         self._current_view = CreateUserView(
             self._root,
             self._user_dao,
             self._show_login_view
+        )
+        self._current_view.pack()
+    
+    def _show_main_view(self, user):
+        self._hide_current_view()
+        self._current_view = MainView(
+            self._root,
+            self._user_dao,
+            self._show_login_view,
+            user
+
         )
         self._current_view.pack()

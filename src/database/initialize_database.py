@@ -1,6 +1,7 @@
 import sqlite3
 from .connection import get_database_connection
 
+
 def drop_tables():
     with get_database_connection() as connection:
         cursor = connection.cursor()

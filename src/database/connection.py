@@ -2,6 +2,7 @@ import sqlite3
 import os
 from src.config import DATABASE_PATH
 
+
 def get_database_connection():
     # Varmistetaan, että tietokantahakemisto on olemassa
     os.makedirs(os.path.dirname(DATABASE_PATH), exist_ok=True)
