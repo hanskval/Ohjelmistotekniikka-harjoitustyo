@@ -1,11 +1,12 @@
 from tkinter import ttk, constants, messagebox
 
 class MainView:
-    def __init__(self, root, user_dao, handle_logout, user, transaction_dao):
+    def __init__(self, root, user_dao, handle_logout, user, transaction_dao, handle_show_transactions):
         self._root = root
         self._user_dao = user_dao
         self._transaction_DAO = transaction_dao
         self._handle_logout = handle_logout
+        self._handle_show_transactions = handle_show_transactions
         self._user = user
         self._frame = None
 
@@ -69,8 +70,9 @@ class MainView:
         welcome_label.grid(row=1, column=0, padx=10, pady=5)
         self._balance_label.grid(row=2, column=0, padx=10, pady=20)
         logout_button.grid(row=3, column=0, padx=10, pady=10)
-
- 
+        history_button = ttk.Button(master=self._frame, text="Näytä tapahtumat", command=lambda: self._handle_show_transactions(self._user))
+        history_button.grid(row=3, column=1, padx=10, pady=10)
+        
         form_frame = ttk.LabelFrame(master=self._frame, text="Lisää uusi tapahtuma")
         form_frame.grid(row=4, column=0, padx=10, pady=10, sticky=constants.EW)
 

@@ -7,4 +7,6 @@
 | 23.3 |  2   |  Tietokannan testien tekeminen |
 | 27.3 |  3   |  Käyttöliittymän (UI) kirjautumis- ja rekisteröitymisnäkymien toteutus |
 | 31.3 |  3   |  Lisätty invoke toiminto ja korjailtu koodia |
+| 10.3 |  3   |  Päivitetty käyttöliittymää ja lisätty ominaisuuksia |
+| 12.3 |  2   |  Päivitetty käyttöliittymää ja tietokanta hakuja korjailtu   |
 
