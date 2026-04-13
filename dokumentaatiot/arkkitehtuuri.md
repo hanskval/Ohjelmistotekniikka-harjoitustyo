@@ -1,1 +1,1 @@
-![Sekvenssikaavio](dokumentaatiot.kuva.sekvenssikaavio.jpeg)
+![Sekvenssikaavio](dokumentaatiot/kuva/sekvenssikaavio.jpeg)
