@@ -3,10 +3,11 @@
 Sovelluksen avulla käyttäjä pysyy ajantasalla taloudellisesta tilanteestaan.
 
 ## Dokumentaatiot
-- [Vaatimusmäärittely](dokumentaatiot/vaatimusmaarittely.md)
-- [Tyoaikakirjanoito](dokumentaatiot/tyoaikakirjanpito.md)
-- [Changelog](dokumentaatiot/changelog.md)
-- [Arkkitehtuuri](dokumentaatiot/arkkitehtuuri.md)
+- [Vaatimusmäärittely](dokumentaatiot/misc/vaatimusmaarittely.md)
+- [Tyoaikakirjanoito](dokumentaatiot/misc/tyoaikakirjanpito.md)
+- [Changelog](dokumentaatiot/misc/changelog.md)
+- [Arkkitehtuuri](dokumentaatiot/misc/arkkitehtuuri.md)
+- [Käyttoohje](dokumentaatiot/misc/kayttoohje.md)
 # Asennus
 1. Varmista että olet sovelluksen juurihakemistossa
 

@@ -1,2 +1,2 @@
 # Sekvenssikaavio
-![Sekvenssikaavio](kuva/sekvenssikaavio.jpeg)
+![Sekvenssikaavio](../kuva/sekvenssikaavio.jpeg)
