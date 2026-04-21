@@ -48,7 +48,6 @@ Uuden tapahtuman lisääminen:
 
 Lisätty tapahtuma ilmestyy välittömästi listaan, ja budjettisi kokonaissaldo päivittyy vastaamaan uutta tilannetta. 
 
-![Sovelluksen päänäkymä](../kuva/main.jpg)
 
 ## Tapahtumien tarkastaminen ja poistaminen
 
