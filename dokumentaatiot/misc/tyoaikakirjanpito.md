@@ -9,5 +9,5 @@
 | 31.3 |  3   |  Lisätty invoke toiminto ja korjailtu koodia |
 | 10.3 |  3   |  Päivitetty käyttöliittymää ja lisätty ominaisuuksia |
 | 12.3 |  2   |  Päivitetty käyttöliittymää ja tietokanta hakuja korjailtu   |
-| 21.3 |  1   | Lisätty käyttohje   |
+| 21.3 |  3   | Lisätty käyttohje, Lisäksi käyttöliittymään tulot ja menot erikseen..   |
 

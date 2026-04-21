@@ -19,3 +19,5 @@
 
 # Viikko5
 - Lisätty käyttöohjeet
+- Lisätty käyttöliittymään tulot vihreellä, menot punasella. Saldo sen mukaan onko plussalla vai miinuksella. 
+- käyttöohjeet ja arkkitehtuuri.md päivitelty
