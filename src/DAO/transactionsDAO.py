@@ -18,6 +18,30 @@ class TransactionsDAO:
             SELECT * FROM transactions WHERE user_id = ?
         ''', (user_id,))
         return cursor.fetchall()
+    
+    def get_income(self, user_id):
+        cursor = self._connection.cursor()
+        
+        cursor.execute(
+            "SELECT SUM(amount) FROM transactions WHERE user_id = ? AND amount > 0", 
+            (user_id,)
+        )
+        result = cursor.fetchone()[0]
+        
+        # Jos tuloja ei ole vielä yhtään, tietokanta palauttaa None. Muutetaan se nollaksi.
+        return result if result is not None else 0.0
+    
+    def get_expenses(self, user_id):
+        cursor = self._connection.cursor()
+        
+        cursor.execute(
+            "SELECT SUM(amount) FROM transactions WHERE user_id = ? AND amount < 0", 
+            (user_id,)
+        )
+        result = cursor.fetchone()[0]
+        
+        # Jos kuluja ei ole vielä yhtään, tietokanta palauttaa None. Muutetaan se nollaksi.
+        return result if result is not None else 0.0
 
     def get_balance(self, user_id):
         # Toteuta käyttäjään liittyvien tapahtumien summan laskeminen
