@@ -16,3 +16,6 @@
 # Viikko4
 - Käyttölittymän päivittämistä
 - Koodin laadun parantamista
+
+# Viikko5
+- Lisätty käyttöohjeet

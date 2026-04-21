@@ -9,12 +9,12 @@
 
 
 ### Ydinominaisuudet
-- Käyttäjä voi luoda käyttäjätunnuksen
-- Käyttäjä voi kirjautua käyttäjätunnuksella
-- Käyttäjä voi poistaa tuloja ja menoja ja muokata aiempia
-- Käyttäjä voi lisätä uuden tulon tai menon. Lisäksi tämä lisätään kategoriaan ja annetaan mahdollinen selite.
-- Sovellus näyttää reaaliaikaisesti saldon
-- Kaikki tiedot tallennetaan paikalliseen tietokantaan
+- Käyttäjä voi luoda käyttäjätunnuksen **Valmis**
+- Käyttäjä voi kirjautua käyttäjätunnuksella **Valmis**
+- Käyttäjä voi poistaa tuloja ja menoja ja muokata aiempia 
+- Käyttäjä voi lisätä uuden tulon tai menon. Lisäksi tämä lisätään kategoriaan ja annetaan mahdollinen selite. **Valmis**
+- Sovellus näyttää reaaliaikaisesti saldon **Valmis**
+- Kaikki tiedot tallennetaan paikalliseen tietokantaan **Valmis**
 
 ## Jatkokehitysideat
 - Pystyisi tekemään yritystilin minkä alle lisätä käyttäjiä, jossa saataisiin yrityksen kirjanpito pidettyä ja mahdolliset kuitit tallennettua kulujen yhteydessä
