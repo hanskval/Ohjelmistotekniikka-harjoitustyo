@@ -21,3 +21,8 @@
 - Lisätty käyttöohjeet
 - Lisätty käyttöliittymään tulot vihreellä, menot punasella. Saldo sen mukaan onko plussalla vai miinuksella. 
 - käyttöohjeet ja arkkitehtuuri.md päivitelty
+
+# Viikko6
+- Lisätty docstringejä koodiin. Siivottu ylimääräisiä kommentoja pois
+- Korjattu pylint virheitä
+
