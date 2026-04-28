@@ -1,6 +1,8 @@
 from tkinter import ttk, constants, messagebox
 
 class TransactionsView:
+    """ Näkymä joka näyttää käyttäjälle kaikki tämänhetkiset tapahtumat taulukkomuodossa 
+    ja tarjoaa mahdollisuuden poistaa tapahtumia """
     def __init__(self, root, transaction_dao, handle_back, user):
         self._root = root
         self._transaction_DAO = transaction_dao
@@ -18,35 +20,34 @@ class TransactionsView:
         self._frame.destroy()
 
     def _handle_delete(self):
-        # Katsotaan, mikä rivi on valittuna taulukosta
+        """ Poistaa valitun tapahtuman tietokannasta ja päivittää listan """
         selected_item = self._tree.selection()
         if not selected_item:
             messagebox.showwarning("Huomio", "Valitse poistettava tapahtuma listalta klikkaamalla sitä!")
             return
 
-        # Haetaan valitun rivin tiedot
         item_values = self._tree.item(selected_item[0])['values']
         transaction_id = item_values[0] 
 
-        # Varmistetaan käyttäjältä, ettei tule vahinkopoistoja
         if messagebox.askyesno("Vahvistus", "Haluatko varmasti poistaa tämän tapahtuman?"):
             self._transaction_DAO.delete(transaction_id)
-            self._refresh_list() # päivitetään lista poiston jälkeen
+            self._refresh_list()
             messagebox.showinfo("Onnistui", "Tapahtuma poistettu.")
 
     def _refresh_list(self):
-        # Tyhjennetään vanha lista
+        """ Tyhjentää taulukon ja hakee databasesta uudet tapahtumat, jotka näytetään taulukossa """
         for item in self._tree.get_children():
             self._tree.delete(item)
-        
-        # Haetaan databasesta uudet tiedot ja lisätään taulukkoon
+
         transactions = self._transaction_DAO.find_by_user_id(self._user['id'])
         for t in transactions:
-            # Timestampista otetaan vain 10 ensimmäistä merkkiä (esim. 2024-03-15)
+
             date_str = t['timestamp'][:10] if t['timestamp'] else "-"
             self._tree.insert("", constants.END, values=(t['id'], date_str, t['description'], t['category'], f"{t['amount']:.2f} €"))
 
     def _initialize(self):
+        """ Toteuttaa tapahtumien listausnäkymän, joka näyttää käyttäjään 
+        liittyviä tapahtumia taulukkomuodossa ja tarjoaa mahdollisuuden poistaa tapahtumia """
         self._frame = ttk.Frame(master=self._root)
 
         ttk.Label(master=self._frame, text="Kaikki tapahtumat", font=("Arial", 16, "bold")).pack(pady=10)

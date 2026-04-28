@@ -3,7 +3,7 @@ class UserDAO:
         self._connection = connection
 
     def create(self, username, password_hash):
-        # Toteuta käyttäjän luominen tietokantaan
+        """ Toteuttaa käyttäjän luomisen tietokantaan """
         cursor = self._connection.cursor()
         cursor.execute('''
             INSERT INTO users (username, password_hash) VALUES (?, ?)''',
@@ -12,7 +12,7 @@ class UserDAO:
         self._connection.commit()
 
     def find_by_username(self, username):
-        # Toteuta käyttäjään liittyvän haun toteutus
+        """ Toteuttaa käyttäjän haun käyttäjänimen perusteella """
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
         row = cursor.fetchone()
@@ -20,7 +20,7 @@ class UserDAO:
         return row if row else None
 
     def find_all(self):
-
+        """ Toteuttaa kaikkien käyttäjien haku tietokannasta """
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM users")
         row = cursor.fetchall()

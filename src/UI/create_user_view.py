@@ -3,6 +3,7 @@ from tkinter import messagebox
 
 
 class CreateUserView:
+    """ Näkymä uuden käyttäjän luomiseen """
     def __init__(self, root, user_dao, handle_show_login_view):
         self._root = root
         self._user_dao = user_dao
@@ -12,6 +13,7 @@ class CreateUserView:
         self._initialize()
 
     def pack(self):
+
         self._frame.pack(fill=tk.BOTH, expand=True)
 
     def destroy(self):
@@ -37,6 +39,7 @@ class CreateUserView:
                   command=self._handle_show_login_view).pack(pady=5)
 
     def _handle_create_user(self):
+        """ Toteuttaa uuden käyttäjän luomisen tietokantaan ja siirtyy takaisin kirjautumisnäkymään onnistumisen jälkeen """
         username = self._username_entry.get()
         password = self._password_entry.get()
 
@@ -53,5 +56,4 @@ class CreateUserView:
         messagebox.showinfo(
             "Onnistui", f"Käyttäjä {username} luotu! Voit nyt kirjautua sisään.")
 
-        # Siirrytään automaattisesti takaisin kirjautumisnäkymään onnistumisen jälkeen
         self._handle_show_login_view()

@@ -1,6 +1,7 @@
 from tkinter import ttk, constants, messagebox
 
 class MainView:
+    """ Näkymä joka näyttää käyttäjälle tämänhetkisen saldon, tulot ja menot sekä tarjoaa lomakkeen uuden tapahtuman lisäämiseen"""
     def __init__(self, root, user_dao, handle_logout, user, transaction_dao, handle_show_transactions):
         self._root = root
         self._user_dao = user_dao
@@ -37,17 +38,14 @@ class MainView:
                 return
 
             try:
-                # Muuttaa teksti desimaaliluvuksi
                 amount = float(amount_str)
                 
-                # tallentaan tietokantaan
                 self._transaction_DAO.create(self._user['id'], amount, category, description)
 
                 self._desc_entry.delete(0, constants.END)
                 self._category_entry.delete(0, constants.END)
                 self._amount_entry.delete(0, constants.END)
 
-                # päivitetään saldon
                 new_balance = self._transaction_DAO.get_balance(self._user['id'])
                 new_income = self._transaction_DAO.get_income(self._user['id'])
                 new_expenses = self._transaction_DAO.get_expenses(self._user['id'])
@@ -66,6 +64,7 @@ class MainView:
                 messagebox.showerror("Virhe", "Summan pitää olla numero (käytä pistettä erottimena)!")
                 
     def _initialize(self):
+        """ Toteuttaa pääsivun, joka näyttää käyttäjään liittyviä tietoja ja tarjoaa lomakkeen uuden tapahtuman lisäämiseen """
         username = self._user['username']
         self._frame = ttk.Frame(master=self._root)
         
@@ -75,8 +74,7 @@ class MainView:
 
         title_label = ttk.Label(master=self._frame, text="Budgeting software!")
         welcome_label = ttk.Label(master=self._frame, text=f"Tervetuloa, {username}!")
-        
-        # tulot ja menot näytetään erivärisinä, jotta ne erottuvat selkeämmin
+
         summary_frame = ttk.Frame(master=self._frame)
         summary_frame.grid(row=2, column=0, pady=10, sticky=constants.EW)
         

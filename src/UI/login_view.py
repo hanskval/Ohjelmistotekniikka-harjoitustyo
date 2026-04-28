@@ -3,6 +3,7 @@ from tkinter import messagebox
 
 
 class LoginView:
+    """ Näkymä kirjautumiseen """
     def __init__(self, root, user_dao, handle_show_create_user_view, handle_show_main_view):
         self._root = root
         self._user_dao = user_dao
@@ -17,7 +18,6 @@ class LoginView:
         self._frame.pack(fill=tk.BOTH, expand=True)
 
     def destroy(self):
-        # Tuhoaa tämän näkymän
         self._frame.destroy()
 
     def _initialize(self):
@@ -40,6 +40,7 @@ class LoginView:
                   command=self._handle_show_create_user_view).pack(pady=5)
 
     def _handle_login(self):
+        """ Toteuttaa kirjautumisen tarkistamalla käyttäjään liittyvät tiedot tietokannasta ja siirtyy pääsivulle onnistumisen jälkeen """
         username = self._username_entry.get()
         password = self._password_entry.get()
         user = self._user_dao.find_by_username(username)
