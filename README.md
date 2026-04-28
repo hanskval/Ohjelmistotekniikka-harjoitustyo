@@ -27,6 +27,19 @@ Sovelluksen avulla käyttäjä pysyy ajantasalla taloudellisesta tilanteestaan.
     poetry run invoke start
     ```
 
+# Testit
+
+1. Pylint testin voi suorittaa komennolla:
+
+    ```bash
+    poetry run invoke lint
+    ```
+    ja testikattavuus raportin
+    ```bash
+    poetry run invoke coverage-report
+    ```
+
+
 # Laskarit
 - [Viikko 1](laskarit/viikko1/viikko1.md)
 - [Viikko 2](laskarit/viikko2)
