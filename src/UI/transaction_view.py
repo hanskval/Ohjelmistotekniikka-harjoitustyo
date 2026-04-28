@@ -54,7 +54,7 @@ class TransactionsView:
 
         popup = tk.Toplevel(self._root)
         popup.title("Muokkaa tapahtumaa")
-        popup.geometry("300x250")
+        popup.minsize(300, 300)
         popup.grab_set()
 
         ttk.Label(popup, text="Kuvaus:").pack(pady=(10, 0))
