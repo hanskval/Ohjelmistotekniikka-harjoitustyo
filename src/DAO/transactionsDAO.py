@@ -1,10 +1,11 @@
 class TransactionsDAO:
+    """ Toteuttaa tapahtumiin liittyviä tietokantaoperaatioita """
 
     def __init__(self, connection):
         self._connection = connection
 
     def create(self, user_id, amount, category, description):
-        # Toteuttaa tapahtuman luomisen tietokantaan
+        """ Toteuttaa tapahtuman luomisen tietokantaan """
         cursor = self._connection.cursor()
         cursor.execute('''
             INSERT INTO transactions (user_id, amount, category, description)
