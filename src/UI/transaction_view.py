@@ -1,3 +1,4 @@
+import tkinter as tk
 from tkinter import ttk, constants, messagebox
 
 class TransactionsView:
@@ -33,7 +34,65 @@ class TransactionsView:
             self._transaction_DAO.delete(transaction_id)
             self._refresh_list()
             messagebox.showinfo("Onnistui", "Tapahtuma poistettu.")
+    
+    def _handle_edit(self):
+        """ Hakee valitun tapahtuman tiedot ja avaa muokkausikkunan """
+        selected_item = self._tree.selection()
+        if not selected_item:
+            messagebox.showwarning("Huomio", "Valitse muokattava tapahtuma listalta klikkaamalla sitä!")
+            return
 
+        item_values = self._tree.item(selected_item[0])['values']
+        self._open_edit_popup(item_values)
+        
+    def _open_edit_popup(self, item_values):
+        """ Rakentaa ponnahdusikkunan valitun tapahtuman muokkausta varten """
+        t_id = item_values[0]
+        t_desc = item_values[2]
+        t_cat = item_values[3]
+        t_amount_str = item_values[4]
+
+        popup = tk.Toplevel(self._root)
+        popup.title("Muokkaa tapahtumaa")
+        popup.geometry("300x250")
+        popup.grab_set()
+
+        ttk.Label(popup, text="Kuvaus:").pack(pady=(10, 0))
+        desc_var = tk.StringVar(value=t_desc)
+        ttk.Entry(popup, textvariable=desc_var).pack()
+
+        ttk.Label(popup, text="Kategoria:").pack(pady=(10, 0))
+        cat_var = tk.StringVar(value=t_cat)
+        ttk.Entry(popup, textvariable=cat_var).pack()
+
+        clean_amount = str(t_amount_str).replace(" €", "").replace(",", ".")
+        ttk.Label(popup, text="Summa (€):").pack(pady=(10, 0))
+        amount_var = tk.StringVar(value=clean_amount)
+        ttk.Entry(popup, textvariable=amount_var).pack()
+
+        def save_changes():
+            new_desc = desc_var.get()
+            new_cat = cat_var.get()
+            
+            try:
+                new_amount = float(amount_var.get())
+            except ValueError:
+                messagebox.showerror("Virhe", "Summan täytyy olla numero!", parent=popup)
+                return
+
+            try:
+                self._transaction_DAO.update(t_id, new_amount, new_cat, new_desc)
+                self._refresh_list()
+                popup.destroy()
+                messagebox.showinfo("Onnistui", "Tapahtuma päivitetty!")
+            except Exception as e:
+                messagebox.showerror("Virhe", f"Tallennus epäonnistui: {e}", parent=popup)
+
+        btn_frame = ttk.Frame(popup)
+        btn_frame.pack(pady=20)
+        ttk.Button(btn_frame, text="Tallenna", command=save_changes).pack(side=constants.LEFT, padx=5)
+        ttk.Button(btn_frame, text="Peruuta", command=popup.destroy).pack(side=constants.LEFT, padx=5)
+    
     def _refresh_list(self):
         """ Tyhjentää taulukon ja hakee databasesta uudet tapahtumat, jotka näytetään taulukossa """
         for item in self._tree.get_children():
@@ -52,11 +111,10 @@ class TransactionsView:
 
         ttk.Label(master=self._frame, text="Kaikki tapahtumat", font=("Arial", 16, "bold")).pack(pady=10)
 
-        # luodaan taulukko tapahtumille
         columns = ("id", "date", "desc", "cat", "amount")
         self._tree = ttk.Treeview(master=self._frame, columns=columns, show="headings", height=15)
         
-        # otiskot
+
         self._tree.heading("id", text="ID")
         self._tree.column("id", width=30)
         self._tree.heading("date", text="Päivämäärä")
@@ -70,6 +128,8 @@ class TransactionsView:
 
         button_frame = ttk.Frame(master=self._frame)
         button_frame.pack(fill=constants.X, padx=10, pady=10)
+
+        ttk.Button(master=button_frame, text="Muokkaa valittua", command=self._handle_edit).pack(side=constants.LEFT, padx=(0, 5))
 
         ttk.Button(master=button_frame, text="Poista valittu", command=self._handle_delete).pack(side=constants.LEFT)
         ttk.Button(master=button_frame, text="Takaisin päänäkymään", command=self._handle_back).pack(side=constants.RIGHT)

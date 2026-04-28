@@ -59,3 +59,13 @@ class TransactionsDAO:
         cursor.execute('''
             DELETE FROM transactions WHERE id = ? ''', (transaction_id,))
         self._connection.commit()
+
+    def update(self, transaction_id, amount, category, description):
+        """ Päivittää olemassa olevan tapahtuman tiedot tietokantaan """
+        cursor = self._connection.cursor()
+        cursor.execute('''
+            UPDATE transactions
+            SET amount = ?, category = ?, description = ?
+            WHERE id = ?
+        ''', (amount, category, description, transaction_id))
+        self._connection.commit()
