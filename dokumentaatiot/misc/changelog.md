@@ -25,4 +25,5 @@
 # Viikko6
 - Lisätty docstringejä koodiin. Siivottu ylimääräisiä kommentoja pois
 - Korjattu pylint virheitä
+- Mahdollisuus muokata lisättyjä tuloja tai menoja.
 

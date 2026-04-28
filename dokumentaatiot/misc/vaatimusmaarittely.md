@@ -11,7 +11,7 @@
 ### Ydinominaisuudet
 - Käyttäjä voi luoda käyttäjätunnuksen **Valmis**
 - Käyttäjä voi kirjautua käyttäjätunnuksella **Valmis**
-- Käyttäjä voi poistaa tuloja ja menoja ja muokata aiempia 
+- Käyttäjä voi poistaa tuloja ja menoja ja muokata aiempia **Valmis**
 - Käyttäjä voi lisätä uuden tulon tai menon. Lisäksi tämä lisätään kategoriaan ja annetaan mahdollinen selite. **Valmis**
 - Sovellus näyttää reaaliaikaisesti saldon **Valmis**
 - Kaikki tiedot tallennetaan paikalliseen tietokantaan **Valmis**
