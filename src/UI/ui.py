@@ -8,22 +8,19 @@ class UI:
         self._root = root
         self._user_dao = user_dao
         self._transaction_dao = transaction_dao
-        self._current_view = None  # Pitää kirjaa nykyisestä näkymästä
+        self._current_view = None
         self._transaction_dao = transaction_dao
 
     def start(self):
-        # Näytetään ensimmäisenä ohjelman käynnityttyä
         self._show_login_view()
 
     def _hide_current_view(self):
-        # Jos ruudulla on jo jokin näkymä, tuhotaan se ennen uuden näyttämistä
         if self._current_view:
             self._current_view.destroy()
         self._current_view = None
 
     def _show_login_view(self):
         self._hide_current_view()
-        # Luodaan LoginView ja annetaan sille funktio, jota kutsua kun pitää vaihtaa näkymää
         self._current_view = LoginView(
             self._root,
             self._user_dao,
@@ -58,7 +55,7 @@ class UI:
         self._current_view = TransactionsView(
             root=self._root,
             transaction_dao=self._transaction_dao,
-            handle_back=lambda: self._show_main_view(user), # Takaisin päänäkymään
+            handle_back=lambda: self._show_main_view(user),
             user=user
         )
         self._current_view.pack()      

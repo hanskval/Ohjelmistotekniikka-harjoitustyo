@@ -34,7 +34,6 @@ class CreateUserView:
         tk.Button(master=self._frame, text="Luo tunnus",
                   command=self._handle_create_user).pack(pady=10)
 
-        # Nappi, joka vie takaisin alkuun
         tk.Button(master=self._frame, text="Takaisin kirjautumiseen",
                   command=self._handle_show_login_view).pack(pady=5)
 
